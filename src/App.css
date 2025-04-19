@@ -1,5 +1,19 @@
 .App {
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.App.light {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.App.dark {
+  background-color: #222;
+  color: #f8f9fa;
 }
 
 .App-logo {
@@ -34,5 +48,254 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.theme-toggle button {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: inherit;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.dark .theme-toggle button {
+  border-color: #555;
+}
+
+h1 {
+  margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.light h1 {
+  color: #333;
+}
+
+.dark h1 {
+  color: #f8f9fa;
+}
+
+.stopwatch {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.light .stopwatch {
+  background-color: #f5f5f5;
+}
+
+.dark .stopwatch {
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.display {
+  font-size: 3.5rem;
+  font-family: monospace;
+  margin: 20px 0;
+  border-radius: 8px;
+  padding: 20px 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.light .display {
+  background-color: #fff;
+  color: #333;
+}
+
+.dark .display {
+  background-color: #222;
+  color: #f8f9fa;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.start-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.stop-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reset-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.lap-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.laps-container {
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.light .laps-container {
+  background-color: white;
+}
+
+.dark .laps-container {
+  background-color: #444;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.laps-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 2px solid;
+  margin-bottom: 10px;
+}
+
+.light .laps-header {
+  border-color: #eee;
+}
+
+.dark .laps-header {
+  border-color: #555;
+}
+
+.laps-list {
+  list-style-type: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.laps-list li {
+  padding: 12px 8px;
+  border-bottom: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: monospace;
+  transition: background-color 0.3s ease;
+}
+
+.light .laps-list li {
+  border-color: #eee;
+}
+
+.dark .laps-list li {
+  border-color: #555;
+}
+
+.laps-list li:last-child {
+  border-bottom: none;
+}
+
+.lap-diff {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.dark .lap-diff {
+  color: #aaa;
+}
+
+.best-lap {
+  position: relative;
+}
+
+.light .best-lap {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.dark .best-lap {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+.worst-lap {
+  position: relative;
+}
+
+.light .worst-lap {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.dark .worst-lap {
+  background-color: rgba(244, 67, 54, 0.2);
+}
+
+.lap-badge {
+  font-size: 0.7em;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.best-lap .lap-badge {
+  background-color: #4caf50;
+  color: white;
+}
+
+.worst-lap .lap-badge {
+  background-color: #f44336;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .display {
+    font-size: 2.5rem;
+    padding: 15px 10px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .controls button {
+    margin-bottom: 8px;
+  }
+  
+  .laps-list li {
+    font-size: 0.9rem;
   }
 }
