@@ -299,3 +299,26 @@ button:active {
     font-size: 0.9rem;
   }
 }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  margin-right: 15px;
+}
+
+.logo svg {
+  vertical-align: middle;
+}
+
+.light .logo {
+  color: #333;
+}
+
+.dark .logo {
+  color: #f8f9fa;
+}

@@ -49,6 +49,20 @@ function App() {
     }
   }, [laps]);
 
+  useEffect(() => {
+    if (running) {
+      document.title = `⏱️ ${formatTime(time, true)} - Running`;
+    } else if (time > 0) {
+      document.title = `⏱️ ${formatTime(time, true)} - Paused`;
+    } else {
+      document.title = 'Precision Stopwatch';
+    }
+    
+    return () => {
+      document.title = 'Precision Stopwatch';
+    };
+  }, [time, running]);
+
   const handleStart = () => {
     setRunning(true);
   };
@@ -110,7 +124,20 @@ function App() {
         </button>
       </div>
       
-      <h1>Stopwatch</h1>
+      <div className="app-header">
+        <div className="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <circle cx="32" cy="32" r="30" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="2"/>
+            <circle cx="32" cy="32" r="27" fill="none" stroke="#4caf50" strokeWidth="2"/>
+            <circle cx="32" cy="32" r="3" fill="#f44336"/>
+            <line x1="32" y1="32" x2="32" y2="15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="32" y1="32" x2="45" y2="32" stroke="#f44336" strokeWidth="2" strokeLinecap="round"/>
+            <rect x="30" y="5" width="4" height="6" rx="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <h1>Precision Stopwatch</h1>
+      </div>
+      
       <div className="stopwatch">
         <div className="display">{formatTime()}</div>
         
